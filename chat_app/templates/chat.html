@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}">
+    <!-- <link rel="stylesheet" href="static/chat.css" > -->
+    <title>Chat</title>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+ 
+    <form id="message-form">
+        <h3>Welcome, {{ username }}</h3>
+        <div id="chat-text">
+            {% for message in messages %}
+                <p><strong>{{ message.sender }}:</strong> {{ message.content }}</p>
+            {% endfor %}
+        </div>
+        <input type="text" type="image" id="message-input" autocomplete="off">
+        
+        <button type="submit">Send</button>
+        <button><a href="http://127.0.0.1:5000/login">Logout</a></button>
+    </form>
+    
+</body>
+</html>
